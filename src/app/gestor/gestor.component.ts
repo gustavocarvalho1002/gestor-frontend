@@ -13,7 +13,7 @@ export class GestorComponent implements OnInit {
 
   constructor(private service: GestorService, private router: Router) { }
 
-  private gestores: Gestor[];
+  public gestores: Gestor[];
   
 
   ngOnInit() {

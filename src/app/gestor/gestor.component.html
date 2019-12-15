@@ -23,7 +23,7 @@
         </thead>
         <tbody>
 
-            <p *ngIf="gestores == ''" style="float: right;">
+            <p *ngIf="gestores?.length === 0" style="float: right;">
                 <br>
                 Sem gestores cadastrados!! Favor cadastrar !!
             </p>
