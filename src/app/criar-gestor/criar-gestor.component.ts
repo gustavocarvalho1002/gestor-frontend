@@ -14,7 +14,7 @@ import { delay } from 'q';
 export class CriarGestorComponent implements OnInit {
 
   gestorId: String;
-  gestor: Gestor = new Gestor("","","","","");
+  gestor: Gestor = new Gestor("", "", "", "", "");
   editar: boolean;
 
   constructor(private service: GestorService, private router: Router) {
@@ -33,29 +33,45 @@ export class CriarGestorComponent implements OnInit {
   ngOnInit() {
   }
 
-  getGestor(id: string){
+  getGestor(id: string) {
     this.service.getGestor(id).subscribe(data => {
-      this.gestor= data;
+      this.gestor = data;
     });
   }
 
-  cadastrar(){
+  cadastrar() {
+    if(this.validar(this.gestor)) {
     alert("Cadastro realizado!!!!");
     this.service.postGestor(this.gestor);
     this.router.navigate(['gestor']);
+    } else {
+      alert("TODOS OS CAMPO SÃO OBRIGATÓRIOS!!!!");
+    }
   }
 
-  atualizar(){
-    alert("Cadastro atualizado!!!!");
-    this.service.putGestor(this.gestor);
-    this.router.navigate(['gestor']);
-    (async () => { 
-      // Do something before delay
-      await delay(1000);
+  atualizar() {
+    if (this.validar(this.gestor)) {
+      alert("Cadastro atualizado!!!!");
+      this.service.putGestor(this.gestor);
+      this.router.navigate(['gestor']);
+      (async () => {
+        // Do something before delay
+        await delay(1000);
 
-      // Do something after
-      location.reload();
-  })();
+        // Do something after
+        location.reload();
+      })();
+    } else {
+      alert("TODOS OS CAMPO SÃO OBRIGATÓRIOS!!!!");
+    }
+  }
+
+  validar(gestor: Gestor) {
+    if (gestor.nome == "" || gestor.matricula == "" || gestor.matricula == null || gestor.dataDeNascimento == "" || gestor.setor == "") {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }
