@@ -6,7 +6,12 @@ import { CriarGestorComponent } from './criar-gestor/criar-gestor.component';
 
 const routes: Routes = [
   { path: 'gestor', component: GestorComponent },
-  { path: 'criar-gestor', component: CriarGestorComponent }
+  { path: 'criar-gestor', component: CriarGestorComponent },
+  {
+    path: '',
+    redirectTo: '/gestor',
+    pathMatch: 'full'
+  },
 ];
 
 @NgModule({
