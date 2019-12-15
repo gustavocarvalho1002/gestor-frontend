@@ -1,0 +1,47 @@
+<br><br>
+<div class="row">
+    <p class="col-md-1"></p>
+    <button type="button" class="btn btn-primary col-md-2" (click)="criar()"><strong>Cadastrar Gestor</strong></button>
+    <br>
+    <br>
+</div>
+<br>
+
+<div class="table-wrapper">
+
+
+
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th>Matricula</th>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+                <th>Setor</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <p *ngIf="gestores == ''" style="float: right;">
+                <br>
+                Sem gestores cadastrados!! Favor cadastrar !!
+            </p>
+
+            <tr *ngFor="let gestor of gestores">
+                <td>{{gestor.matricula}}</td>
+                <td>{{gestor.nome}}</td>
+                <td>{{gestor.dataDeNascimento}}</td>
+                <td>{{gestor.setor}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" (click)="editar(gestor.id)">Editar</button>
+                    <button type="button" class="btn btn-danger" (click)="excluir(gestor.id)">Excluir</button>
+                </td>
+            </tr>
+        <tbody>
+
+
+    </table>
+
+
+</div>

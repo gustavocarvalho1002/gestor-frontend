@@ -1,0 +1,57 @@
+<br><br>
+<div class="row">
+    <p class="col-md-1"></p>
+    <button type="button" class="btn btn-secondary col-md-2" routerLink="/gestor"><strong>Voltar</strong></button>
+    <br>
+    <br>
+</div>
+<br>
+
+<div class="table-wrapper">
+
+
+
+    <table class="fl-table">
+        <thead>
+            <tr>
+                <th *ngIf="!editar">CADASTRAR GESTOR</th>
+                <th *ngIf="editar">EDITAR GESTOR</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="offset-md-1 col-md-10">                  
+                    <label for="nome" style="float: left"><h3>Nome: </h3></label>
+                    <input type="text" class="form-control" id="nome" [(ngModel)]="gestor.nome" >
+                    <br>
+
+                    <label for="matricula" style="float: left"><h3>Matricula: </h3></label>
+                    <input type="number" class="form-control" id="matricula" [(ngModel)]="gestor.matricula" >
+                    <br>
+
+                    <label for="dataDeNascimento" style="float: left"><h3>Data de nascimento: </h3></label>
+                    <input type="text" class="form-control" id="dataDeNascimento" [(ngModel)]="gestor.dataDeNascimento" maxlength="8" placeholder=" entrar data com barras(Ex: 08/09/1990)">
+                    <br>
+
+                    <label for="setor" style="float: left"><h3>Setor: </h3></label>
+                    <select id="setor" class="form-control" [(ngModel)]="gestor.setor">
+                            <option *ngIf="gestor.setor==''" value="" selected disabled></option>
+                            <option value="Admistrativo ">Admistrativo</option>
+                            <option value="Tecnologia">Tecnologia</option>
+                            <option value="Help desk">Help desk</option>
+                            <option value="Recursos humanos">Recursos humanos</option>
+                    </select> 
+                    <br>
+                    <button *ngIf="!editar" type="button" class="btn btn-success col-md-6" (click)="cadastrar()"><strong>Cadastrar</strong></button>
+                    <button *ngIf="editar" type="button" class="btn btn-success col-md-6" (click)="atualizar()"><strong>Atualizar</strong></button>
+                    </div>
+                </td>
+            </tr>
+        <tbody>
+
+
+    </table>
+
+
+</div>
