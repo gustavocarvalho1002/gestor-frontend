@@ -27,11 +27,11 @@
                     <br>
 
                     <label for="matricula" style="float: left"><h3>Matricula: </h3></label>
-                    <input type="number" class="form-control" id="matricula" [(ngModel)]="gestor.matricula" >
+                    <input type="number" class="form-control" id="matricula" [(ngModel)]="gestor.matricula" placeholder="Somente números">
                     <br>
 
                     <label for="dataDeNascimento" style="float: left"><h3>Data de nascimento: </h3></label>
-                    <input type="text" class="form-control" id="dataDeNascimento" [(ngModel)]="gestor.dataDeNascimento" maxlength="8" placeholder=" entrar data com barras(Ex: 08/09/1990)">
+                    <input type="text" class="form-control" id="dataDeNascimento" [(ngModel)]="gestor.dataDeNascimento" maxlength="10" placeholder=" entrar data com barras(Ex: 08/09/1990 onde dd/MM/YYYY)">
                     <br>
 
                     <label for="setor" style="float: left"><h3>Setor: </h3></label>
